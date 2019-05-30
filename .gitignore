@@ -1,0 +1,11 @@
+.idea
+*.iml
+target
+env/
+cookbooks/vagrant-*
+.vagrant
+*.pyc
+private.json
+terraform.tfvars
+berks-cookbooks
+*.tfstate*
