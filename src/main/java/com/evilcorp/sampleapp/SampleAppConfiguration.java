@@ -8,19 +8,21 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class SampleAppConfiguration extends Configuration {
     @NotEmpty
     private String applicationName;
-
+    @NotEmpty
+    private String version;
+ 
     private DataSourceFactory database = new DataSourceFactory();
-
-    @JsonProperty("database")
-    public void setDataSourceFactory(DataSourceFactory factory) {
-        this.database = factory;
+    
+    @JsonProperty
+    public String getVersion() {
+        return version;
     }
-
-    @JsonProperty("database")
-    public DataSourceFactory getDataSourceFactory() {
-        return database;
+ 
+    @JsonProperty
+    public void setVersion(String version) {
+        this.version = version;
     }
-
+    
     @JsonProperty
     public String getApplicationName() {
         return applicationName;
@@ -29,5 +31,15 @@ public class SampleAppConfiguration extends Configuration {
     @JsonProperty
     public void setApplicationName(String applicationName) {
         this.applicationName = applicationName;
+    }
+    
+    @JsonProperty("database")
+    public void setDataSourceFactory(DataSourceFactory factory) {
+        this.database = factory;
+    }
+
+    @JsonProperty("database")
+    public DataSourceFactory getDataSourceFactory() {
+        return database;
     }
 }
